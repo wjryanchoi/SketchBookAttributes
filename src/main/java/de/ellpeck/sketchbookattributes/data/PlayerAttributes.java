@@ -20,7 +20,7 @@ import java.util.regex.Pattern;
 
 public class PlayerAttributes implements INBTSerializable<CompoundNBT> {
 
-    public static final int MAX_LEVEL = 100;
+    public static final int MAX_LEVEL = 100000;
 
     private static final UUID MELEE_DAMAGE_ATTRIBUTE = UUID.fromString("46f4847e-e70c-4cf5-9c6c-6bb5057c5c25");
     private static final UUID MELEE_SPEED_ATTRIBUTE = UUID.fromString("04971c8a-62d5-4f01-b67f-d55a29e4482c");
@@ -153,7 +153,7 @@ public class PlayerAttributes implements INBTSerializable<CompoundNBT> {
             this.pointsToNextLevel -= this.getXpNeededForNextLevel();
             if (this.level < MAX_LEVEL) {
                 this.levelUp(player, 1);
-                this.skillPoints++;
+                this.skillPoints+=4;
             } else {
                 this.pointsToNextLevel = 0;
             }
